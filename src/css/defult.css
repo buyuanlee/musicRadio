@@ -62,11 +62,14 @@ body {
 }
 
 .newSong.active {
-    background: #02a3c0;
+    background: rgba(0, 0, 0, .5);
+}
+
+.songList-container {
+    flex-grow: 1;
 }
 
 .songList {
-    flex-grow: 1;
     text-align: left;
     border-top: 1px solid #666;
 }
@@ -77,7 +80,7 @@ body {
 }
 
 .songList > li.active {
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
 }
 
 .uploadArea {
@@ -101,7 +104,7 @@ body {
     cursor: pointer;
 }
 
-.uploadBtn {
+.uploadArea > .uploadBtn {
     background-color: #06b7c0;
     color: #fff;
     font-size: 18px;
@@ -112,8 +115,13 @@ body {
     cursor: pointer;
 }
 
-.uploadBtn:hover {
+.uploadArea > .uploadBtn:hover {
     background-color: #02a3c0;
+}
+
+.uploadArea > #uploadStatus {
+    width: 400px;
+    overflow: auto;
 }
 
 /****** main ******/
@@ -121,7 +129,7 @@ body {
 .page > main {
     color: #fff;
     padding-top: 20px;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
 }
 
 .page > main > .songForm {

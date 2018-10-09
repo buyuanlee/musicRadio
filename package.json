@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/buyuanwanli/musicRadio#readme",
   "dependencies": {
+    "jquery": "^3.3.1",
     "leancloud-storage": "^3.10.0",
     "qiniu": "^7.2.1",
     "qiniu-js": "^1.0.22"
