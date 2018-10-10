@@ -46,35 +46,14 @@
             id: ''
         },
         create(data) {
-            // 声明类型
             var Song = AV.Object.extend('Song');
-            // 新建对象
             var song = new Song();
-            // 设置名称
             song.set('name', data.name);
-            // 设置优先级
             song.set('singer', data.singer);
             song.set('url', data.url);
             return song.save().then((newSong) => {
-                //let id = newSong.id
-                //let attributes = newSong.attributes
-                //简写为
                 let {id, attributes} = newSong
-                //this.data.id = id
-                //this.data.name = attributes.name
-                //this.data.singer = attributes.singer
-                //this.data.url = attributes.url
-                //简写为
-                Object.assign(this.data, {
-                    //id: id,
-                    //简写为
-                    id,
-                    //name: attributes.name,
-                    //singer: attributes.singer,
-                    //url: attributes.url
-                    //简写为
-                    ...attributes
-                })
+                Object.assign(this.data, {id, ...attributes})
             }, (error) => {
                 console.error(error);
             });
@@ -85,14 +64,11 @@
             this.view = view
             this.view.init()
             this.model = model
-            this.bindEvents()
             this.view.render(this.model.data)
+            this.bindEvents()
             window.eventHub.on('upload', (data) => {
-                this.reset(data)
+                this.view.render(data)
             })
-        },
-        reset(data) {
-            this.view.render(data)
         },
         bindEvents() {
             this.view.$el.on('submit', 'form', (e) => {
@@ -105,6 +81,8 @@
                 this.model.create(data)
                     .then(() => {
                         this.view.reset()
+                        let string = JSON.stringify(this.model.data)
+                        let object = JSON.parse(string)
                         window.eventHub.emit('create', this.model.data)
                     })
             })

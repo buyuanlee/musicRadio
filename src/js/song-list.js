@@ -6,14 +6,27 @@
             </ul>
         `,
         rendor(data) {
-            $(this.el).html(this.template)
+            let $el = $(this.el)
+            $el.html(this.template)
+            let {songs} = data
+            console.log({songs})
+            let liList = songs.map((song) =>
+                $('<li></li>').text(song.name)
+            )
+            console.log({liList})
+            $el.find('ul').empty()
+            liList.map((domLi) => {
+                $el.find('ul').append(domLi)
+            })
         },
         clearActive() {
             $(this.el).find('.active').removeClass('active')
         }
     }
     let model = {
-        data: []
+        data: {
+            songs: []
+        }
     }
     let controller = {
         init(view, model) {
@@ -23,8 +36,8 @@
             window.eventHub.on('upload', () => {
                 this.view.clearActive()
             })
-            window.eventHub.on('create', () => {
-                this.model.data.push(data)
+            window.eventHub.on('create', (songData) => {
+                this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
             })
         }
