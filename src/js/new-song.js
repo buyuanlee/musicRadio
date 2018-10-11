@@ -3,7 +3,7 @@
         el: '.newSong',
         template: `
             <h2>
-                新建歌曲
+                歌曲列表
             </h2>
         `,
         render(data) {
