@@ -10,7 +10,7 @@
             $el.html(this.template)
             let {songs} = data
             let liList = songs.map((song) =>
-                $('<li></li>').text(song.name).attr('data-song-id',song.id)
+                $('<li></li>').text(song.name).attr('data-song-id', song.id)
             )
             $el.find('ul').empty()
             liList.map((domLi) => {
@@ -58,7 +58,24 @@
             $(this.view.el).on('click', 'li', (e) => {
                 this.view.activeItem(e.currentTarget)
                 let songId = e.currentTarget.getAttribute('data-song-id')
-                window.eventHub.emit('select',{id:songId})
+                let name = e.currentTarget.textContent
+                let data
+                let songs = this.model.data.songs
+                for (let i = 0; i < songs.length; i++) {
+                    if (songs[i].id === songId) {
+                        data = songs[i]
+                        break
+                    }
+                }
+                //写法一：
+                //let string = JSON.stringify(data)
+                //let object = JSON.parse(string)
+                //window.eventHub.emit('select', object)
+                //写法二：
+                //let object =
+                //window.eventHub.emit('select', object)
+                //写法三：
+                window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
             })
         },
         bindEventHub() {
