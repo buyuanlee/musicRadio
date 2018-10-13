@@ -6,7 +6,6 @@
         },
         template: `
             <form class="songForm">
-                <h1>新建歌曲</h1>
                 <div class="row">
                     <label>歌名</label>
                     <input name="name" type="text" value="__name__">
@@ -33,6 +32,12 @@
                 html = html.replace(`__${string}__`, data[string] || '')
             })
             $(this.el).html(html)
+            //初始data.id是空字符串。所以不能判断其为undefined。而应该为falsely值
+            if (data.id) {
+                $(this.el).prepend('<h1>编辑歌曲</h1>')
+            } else {
+                $(this.el).prepend('<h1>新建歌曲</h1>')
+            }
         },
         reset() {
             this.render({})
@@ -70,6 +75,12 @@
                 this.view.render(data)
             })
             window.eventHub.on('select', (data) => {
+                this.view.render(data)
+            })
+            window.eventHub.on('new', () => {
+                data = {
+                    name: '', url: '', id: '', singer: ''
+                }
                 this.view.render(data)
             })
         },
