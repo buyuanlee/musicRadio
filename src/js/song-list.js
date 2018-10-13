@@ -60,7 +60,6 @@
                 this.view.activeItem(e.currentTarget)
                 let songId = e.currentTarget.getAttribute('data-song-id')
                 let name = e.currentTarget.textContent
-                let data
                 let songs = this.model.data.songs
                 for (let i = 0; i < songs.length; i++) {
                     if (songs[i].id === songId) {
@@ -80,9 +79,6 @@
             })
         },
         bindEventHub() {
-            window.eventHub.on('upload', () => {
-                this.view.clearActive()
-            })
             window.eventHub.on('create', (songData) => {
                 this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
