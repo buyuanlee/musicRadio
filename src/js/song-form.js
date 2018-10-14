@@ -126,7 +126,7 @@
                 e.preventDefault()
                 this.update()
                 if (this.model.data.id) {
-                    console.log('yes')
+
                 } else {
                     this.create()
                 }
