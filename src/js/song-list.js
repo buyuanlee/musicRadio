@@ -62,7 +62,7 @@
                 this.model.data.selectedSongId = songId
                 this.view.render(this.model.data)
 
-                let data
+                let data = {}
                 let songs = this.model.data.songs
                 for (let i = 0; i < songs.length; i++) {
                     if (songs[i].id === songId) {
