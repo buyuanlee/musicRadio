@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>MusicRadio</title>
+</head>
+<body>
+<div class="page tabs">
+    <div class="sticky">
+        <section class="topbar">
+            <div class="logo">
+            </div>
+            <a href="#">下载APP</a>
+        </section>
+        <section id="tabs" class="globalTabs">
+            <ol class="tabs-nav">
+                <li class=active data-tab-name="page-1">
+                    <div class="text"> 推荐音乐</div>
+                </li>
+                <li data-tab-name="page-2">
+                    <div class="text">热歌榜</div>
+                </li>
+                <li data-tab-name="page-3">
+                    <div class="text">搜索</div>
+                </li>
+            </ol>
+        </section>
+    </div>
+    <ol class="tab-content noCollapse">
+        <li class="page-1 active">
+            <section class="playlists">
+                <h2 class="sectionTitle">推荐歌单</h2>
+                <ol class="songs">
+                    <li>
+                        <div class="cover">
+                            <img width=105 src="http://p1.music.126.net/_PJwqL-VgmG1KUo5J3mT0Q==/109951163573706726.jpg" alt="封面">
+                        </div>
+                        <p>两行文字两行文字两行文字两行文字两行文字</p>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <img src="http://p1.music.126.net/mBhDt8ZOnsqqh_u9z0NQOQ==/109951163598849333.jpg"
+                                 alt="封面">
+                        </div>
+                        <p>两行文字两行文字两行文字两行文字</p>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <img src="http://p2.music.126.net/xKZm8J9TaW4bIAezgyHyzA==/18778559093008584.jpg" alt="封面">
+                        </div>
+                        <p>两行文字两行文字两行文字两行文字</p>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <img src="http://p1.music.126.net/CQDGeibcfkSHbbyjapNBmw==/109951163430714435.jpg" alt="封面">
+                        </div>
+                        <p>两行文字两行文字两行文字两行文字</p>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <img src="http://p2.music.126.net/wpahk9cQCDtdzJPE52EzJQ==/109951163271025942.webp?imageView&thumbnail=369x0&quality=75&tostatic=0&type=webp" alt="封面">
+                        </div>
+                        <p>两行文字两行文字两行文字两行文字</p>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <img src="http://p1.music.126.net/seDdKiTZQvhmeeAsZqt6Nw==/109951163576449922.jpg" alt="封面">
+                        </div>
+                        <p>两行文字两行文字两行文字两行文字</p>
+                    </li>
+                </ol>
+            </section>
+            <section class="songs">
+                <h2 class="sectionTitle">最新音乐</h2>
+                <ol id="songs" class="list">
+                    <div id="songs-loading" class="square-spin" style="margin: 0 auto; width: 50px;">
+                        <div></div>
+                    </div>
+                </ol>
+            </section>
+            <section class="art">
+                <div class="logo">
+                </div>
+                <div class="link-wrapper">
+                    <a href="#">打开APP，发现更多好音乐 &gt;</a>
+                </div>
+                <div class="copyright">
+                    网易公司版权所有©1997-2017 杭州乐读科技有限公司运营
+                </div>
+            </section>
+        </li>
+        <li class="page-2">page 2</li>
+        <li class="page-3">
+            <input id="search" type="text" style="background:#EBECEC;">
+            <ol id="searchResult"></ol>
+        </li>
+    </ol>
+</div>
+</body>
+</html>
