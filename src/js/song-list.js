@@ -63,7 +63,6 @@
                 this.view.render(this.model.data)
 
                 let data
-                let name = e.currentTarget.textContent
                 let songs = this.model.data.songs
                 for (let i = 0; i < songs.length; i++) {
                     if (songs[i].id === songId) {

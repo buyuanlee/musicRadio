@@ -124,9 +124,8 @@
         bindEvents() {
             this.view.$el.on('submit', 'form', (e) => {
                 e.preventDefault()
-                this.update()
                 if (this.model.data.id) {
-
+                    this.update()
                 } else {
                     this.create()
                 }
