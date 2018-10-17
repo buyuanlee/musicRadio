@@ -5,8 +5,11 @@
             let {song, status} = data
             $(this.el).css('background-image', `url(${song.cover})`)
             $(this.el).find('img.cover').attr('src', song.cover)
-            if ($(this.el).find('audio').attr('src')!==song.url){
+            if ($(this.el).find('audio').attr('src') !== song.url) {
                 $(this.el).find('audio').attr('src', song.url)
+                    .on('ended', () => {
+                        window.eventHub.emit('songEnd')
+                    })
             }
             if (status === 'playing') {
                 $(this.el).find('.disc-container').addClass('playing')
@@ -64,6 +67,10 @@
                 this.model.data.status = 'paused'
                 this.view.render(this.model.data)
                 this.view.pause()
+            })
+            window.eventHub.on('songEnd', () => {
+                this.model.data.status = 'pause'
+                this.view.render(this.model.data)
             })
         },
         getSongId() {
