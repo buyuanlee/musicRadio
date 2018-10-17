@@ -5,14 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/song.css">
     <title>播放页面</title>
 </head>
 <body>
-<div class="page">
+<div class="page" id="app">
+    <audio src="#"></audio>
     <div class="disc-container">
-        <img class="pointer" src="//s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862 " alt="">
+        <img class="pointer" src="//s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862 "
+             alt="">
         <div class="disc">
             <div class="icon-wrapper">
                 <svg class="icon icon-play">
@@ -42,11 +43,11 @@
         <a class="main" href="#">下载</a>
     </div>
 </div>
-<script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
+<script src="//at.alicdn.com/t/font_877073_grfl7khrk7m.js"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
 <script src="./js/initializers/av.js"></script>
 <script src="./js/admin/event-hub.js"></script>
-<script src="./js/song/get.js"></script>
+<script src="./js/song/app.js"></script>
 </body>
 </html>
