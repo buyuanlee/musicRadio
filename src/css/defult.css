@@ -158,6 +158,10 @@ body {
     border-radius: 5px;
 }
 
+.page > main > .songForm > .row > textarea {
+
+}
+
 .page > main > .songForm > .row > .save {
     background-color: #06b7c0;
     color: #fff;
@@ -172,3 +176,4 @@ body {
 .page > main > .songForm > .row > .save:hover {
     background-color: #02a3c0;
 }
+
