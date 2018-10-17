@@ -16,6 +16,15 @@
             } else {
                 $(this.el).find('.disc-container').removeClass('playing')
             }
+            $(this.el).find('.song-description>h1').text(song.name)
+            let {lyrics} = song
+            let array = lyrics.split('\n').map((string) => {
+                let p = document.createElement('p')
+                p.textContent = string
+                return p
+            })
+            console.log(array)
+            $(this.el).find('.lyric>.lines').append(array)
         },
         play() {
 
