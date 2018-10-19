@@ -6,10 +6,13 @@
             $(this.el).css('background-image', `url(${song.cover})`)
             $(this.el).find('img.cover').attr('src', song.cover)
             if ($(this.el).find('audio').attr('src') !== song.url) {
-                $(this.el).find('audio').attr('src', song.url)
-                    .on('ended', () => {
-                        window.eventHub.emit('songEnd')
-                    })
+                let audio = $(this.el).find('audio').attr('src', song.url).get(0)
+                audio.onended = () => {
+                    window.eventHub.emit('songEnd')
+                }
+                audio.ontimeupdate = () => {
+                    this.showLyric(audio.currentTime)
+                }
             }
             if (status === 'playing') {
                 $(this.el).find('.disc-container').addClass('playing')
@@ -18,18 +21,53 @@
             }
             $(this.el).find('.song-description>h1').text(song.name)
             let {lyrics} = song
-            let array = lyrics.split('\n').map((string) => {
+            lyrics.split('\n').map((string) => {
                 let p = document.createElement('p')
-                p.textContent = string
-                return p
+                let regex = /\[([\d:.]+)\](.+)/
+                let matches = string.match(regex)
+                if (matches) {
+                    p.textContent = matches[2]
+                    let time = matches[1]
+                    let parts = time.split(':')
+                    let minutes = parts[0]
+                    let seconds = parts[1]
+                    let newTime = parseInt(minutes, 10) * 60 + parseFloat(seconds, 10)
+                    p.setAttribute('data-time', newTime)
+                } else {
+                    p.textContent = string
+                }
+                $(this.el).find('.lyric>.lines').append(p)
             })
-            console.log(array)
-            $(this.el).find('.lyric>.lines').append(array)
+        },
+        showLyric(time) {
+            let allP = $(this.el).find('.lyric>.lines>p')
+            let p
+            for (let i = 0; i < allP.length; i++) {
+                if (i === allP.length - 1) {
+                    p = allP[i]
+                    break
+                } else {
+                    let currentTime = allP.eq(i).attr('data-time')
+                    let nextTime = allP.eq(i + 1).attr('data-time')
+                    if (currentTime <= time && time < nextTime) {
+                        p = allP[i]
+                        break
+                    }
+                }
+            }
+            let pHeight = p.getBoundingClientRect().top
+            let linesHeight = $(this.el).find('.lyric>.lines')[0].getBoundingClientRect().top
+            let height = pHeight - linesHeight
+            $(this.el).find('.lyric>.lines').css({
+                transform: `translateY(${-(height - 25)}px)`
+            })
+            $(p).addClass('active').siblings('.active').removeClass('active')
+            //此处不做移除也可以，因为已播放歌词隐藏了
         },
         play() {
-
             $(this.el).find('audio')[0].play()
-        },
+        }
+        ,
         pause() {
             $(this.el).find('audio')[0].pause()
         }
