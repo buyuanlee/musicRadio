@@ -1,5 +1,3 @@
-import * as Qiniu from "qiniu-js";
-
 {
     let view = {
         el: '.uploadArea',
