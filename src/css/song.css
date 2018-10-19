@@ -97,7 +97,7 @@
 
 .song-description {
     flex-grow: 1;
-    color: #ff731b;
+    color: #ffffff;
     text-align: center;
     line-height: 2;
     margin-top: 20px;
@@ -123,7 +123,8 @@
 }
 
 .song-description p.active {
-    color: white;
+    color: #ff731b;
+    transform: scale(1.25);
 }
 
 .page > .links {
