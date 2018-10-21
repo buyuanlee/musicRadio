@@ -16,12 +16,21 @@
 <script src="./js/initializers/av.js"></script>
 <script src="js/admin/event-hub.js"></script>
 <script>
+    var Song = AV.Object.extend('Song');
+    var song = new Song();
+    song.set('name', '一首歌');
+
     var Playlist = AV.Object.extend('Playlist');
     var playlist = new Playlist();
     playlist.set('name', '歌单名');
     playlist.set('summary', '歌单简介');
-    playlist.save().then((newPlaylist) => {
-        console.log(newOlaylist)
+
+    song.set('dependent', playlist);
+
+
+    song.save().then((newSong) => {
+        let {id, attributes} = newSong
+        Object.assign(this.data, {id, ...attributes})
     }, (error) => {
         console.error(error);
     });
