@@ -1,11 +1,100 @@
-*{margin:0;padding:0;}
-*{box-sizing: border-box;}
-*::after{box-sizing: border-box;}
-*::before{box-sizing: border-box;}
+* {
+    margin: 0;
+    padding: 0;
+}
 
-a{color: inherit; text-decoration: none;}
-ul,ol{list-style: none;}
-h1,h2,h3,h4,h5,h6{ font-weight: normal; }
+* {
+    box-sizing: border-box;
+}
 
-body{font:14px/1.5 Helvetica,sans-serif;}
+*::after {
+    box-sizing: border-box;
+}
+
+*::before {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+body {
+    font: 14px/1.5 Helvetica, sans-serif;
+}
+
+.playlistForm-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    color: #ffffff;
+    height: 100vh;
+    background-image: url("http://91jean.oss-cn-hangzhou.aliyuncs.com/18-10-23/86450870.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.playlistForm-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    filter: blur(5px);
+    background-image: inherit;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+.playlistForm-wrapper > h1 {
+
+}
+
+.playlistForm-wrapper > .playlistForm {
+}
+
+.playlistForm-wrapper > .playlistForm > .row {
+    margin: 20px;
+
+}
+
+.playlistForm-wrapper > .playlistForm > .row > label {
+
+}
+
+.playlistForm-wrapper > .playlistForm > .row > label > input {
+}
+
+.playlistForm-wrapper > .playlistForm > .row > label > textarea {
+}
+
+.playlistForm-wrapper > .playlistForm > .row > button {
+    background-color: #06b7c0;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    outline: none;
+    cursor: pointer;
+
+}
+
+.playlistForm-wrapper > .playlistForm > .row > button:hover {
+    background-color: #02a3c0;
+}
 
