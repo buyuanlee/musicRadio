@@ -26,10 +26,6 @@ input {
 }
 
 body {
-    background-image: url("http://91jean.oss-cn-hangzhou.aliyuncs.com/18-8-31/16567303.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
     font-size: 12px;
     line-height: 1.5;
 }
@@ -37,16 +33,40 @@ body {
 /****** layout ******/
 .page {
     display: flex;
+    justify-content: center;
+    position: relative;
+    color: #ffffff;
     height: 100vh;
+    background-image: url("http://91jean.oss-cn-hangzhou.aliyuncs.com/18-10-23/12380474.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    filter: blur(5px);
+    background-image: inherit;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -1;
 }
 
 .page > aside {
-    width: 400px;
+    width: 30%;
+    background: rgba(0,0,0,.4);
 }
 
 .page > main {
     flex-grow: 1;
     padding-left: 20px;
+    background: rgba(0,0,0,.2);
+
 }
 
 /****** aside ******/
@@ -62,7 +82,7 @@ body {
 }
 
 .newSong.active {
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 183, 183, 0.6);
 }
 
 .songList-container {
@@ -80,7 +100,7 @@ body {
 }
 
 .songList > li.active {
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 183, 183, 0.6);
 }
 
 .uploadArea {
@@ -92,7 +112,7 @@ body {
 }
 
 .uploadArea > .dropArea {
-    width: 400px;
+    width: 100%;
     height: 200px;
     display: flex;
     align-items: center;
@@ -105,7 +125,7 @@ body {
 }
 
 .uploadArea > .uploadBtn {
-    background-color: #06b7c0;
+    background-color: #00b7b7;
     color: #fff;
     font-size: 18px;
     padding: 10px 30px;
@@ -128,8 +148,7 @@ body {
 
 .page > main {
     color: #fff;
-    padding-top: 20px;
-    background: rgba(0, 0, 0, .5);
+    padding-top: 10px;
 }
 
 .page > main > .songForm {
@@ -141,27 +160,77 @@ body {
     margin: 20px 5px;
 }
 
-.page > main > .songForm > .row.actions {
-    margin-left: calc(4em + 5px);
+/*输入框样式*/
+.inp {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
 }
 
-.page > main > .songForm > .row > label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4em;
+.inp .label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
 }
 
-.page > main > .songForm > .row > input {
-    padding: 3px 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.inp .border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #17D2D6;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all 0.15s ease;
 }
 
-.page > main > .songForm > .row > textarea {
-
+.inp input, textarea {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #ffffff;
+    background: none;
+    border-radius: 0;
+    color: #ffffff;
+    transition: all 0.15s ease;
 }
 
+.inp input:hover, textarea:hover {
+    background: rgba(34, 50, 84, 0.03);
+}
+
+.inp input:focus, textarea:focus {
+    background: none;
+    outline: none;
+}
+
+.inp input:not(:placeholder-shown) + span, .inp textarea:not(:placeholder-shown) + span {
+    color: #17D2D6;
+    transform: translateY(-26px) scale(0.75);
+}
+
+.inp input:focus + span, .inp textarea:focus + span {
+    color: #17D2D6;
+    transform: translateY(-26px) scale(0.85);
+}
+
+.inp input:focus + span + .border {
+    transform: scaleX(1);
+}
+
+.inp textarea:focus + span + .border {
+    transform: translateY(-6px) scaleX(1);
+}
+/*按钮样式*/
 .page > main > .songForm > .row > .save {
     background-color: #06b7c0;
     color: #fff;
@@ -176,4 +245,3 @@ body {
 .page > main > .songForm > .row > .save:hover {
     background-color: #02a3c0;
 }
-

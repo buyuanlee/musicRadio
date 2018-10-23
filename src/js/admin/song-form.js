@@ -7,24 +7,39 @@
         template: `
             <form class="songForm">
                 <div class="row">
-                    <label>歌名</label>
-                    <input name="name" type="text" value="__name__">
+                    <label for="name" class="inp">
+                        <input type="text" name="name" placeholder="&nbsp;" value="__name__">
+                        <span class="label">歌名</span>
+                        <span class="border"></span>
+                    </label>
                 </div>
                 <div class="row">
-                    <label>歌手</label>
-                    <input name="singer" type="text" value="__singer__">
+                    <label for="singer" class="inp">
+                        <input type="text" name="singer" placeholder="&nbsp;" value="__singer__">
+                        <span class="label">歌手</span>
+                        <span class="border"></span>
+                    </label>
                 </div>
                 <div class="row">
-                    <label>外链</label>
-                    <input  name="url" type="text" value="__url__">
+                    <label for="url" class="inp">
+                        <input type="text" name="url" placeholder="&nbsp;" value="__url__">
+                        <span class="label">外链</span>
+                        <span class="border"></span>
+                    </label>
                 </div>                
                 <div class="row">
-                    <label>封面</label>
-                    <input  name="cover" type="text" value="__cover__">
+                    <label for="cover" class="inp">
+                        <input type="text" name="cover" placeholder="&nbsp;" value="__cover__">
+                        <span class="label">封面</span>
+                        <span class="border"></span>
+                    </label>
                 </div>
                 <div class="row">
-                    <label>歌词</label>
-                    <textarea cols="100" rows="10" name="lyrics">__lyrics__</textarea>
+                    <label for="lyrics" class="inp">
+                        <textarea  rows="15" type="text" name="lyrics" placeholder="&nbsp;">__lyrics__</textarea>
+                        <span class="label">歌词</span>
+                        <span class="border"></span>
+                    </label>
                 </div>
                 <div class="row actions">
                     <button class="save" type="submit">
