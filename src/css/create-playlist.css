@@ -1,3 +1,4 @@
+/*初始化*/
 * {
     margin: 0;
     padding: 0;
@@ -32,6 +33,7 @@ body {
     font: 14px/1.5 Helvetica, sans-serif;
 }
 
+/*列表布局与背景图设置*/
 .playlistForm-wrapper {
     display: flex;
     align-items: center;
@@ -60,6 +62,7 @@ body {
     z-index: -1;
 }
 
+/*标题*/
 .playlistForm-wrapper > h1 {
 
 }
@@ -69,32 +72,96 @@ body {
 
 .playlistForm-wrapper > .playlistForm > .row {
     margin: 20px;
-
+    display: grid;
 }
 
-.playlistForm-wrapper > .playlistForm > .row > label {
-
+/*输入框样式*/
+.inp {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
 }
 
-.playlistForm-wrapper > .playlistForm > .row > label > input {
+.inp .label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
 }
 
-.playlistForm-wrapper > .playlistForm > .row > label > textarea {
+.inp .border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #17D2D6;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all 0.15s ease;
 }
 
+.inp input, textarea {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 12px 0;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #ffffff;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all 0.15s ease;
+}
+
+.inp input:hover, textarea:hover {
+    background: rgba(34, 50, 84, 0.03);
+}
+
+.inp input:focus, textarea:focus {
+    background: none;
+    outline: none;
+}
+
+.inp input:not(:placeholder-shown) + span, .inp textarea:not(:placeholder-shown) + span {
+    color: #5a667f;
+    transform: translateY(-26px) scale(0.75);
+}
+
+.inp input:focus + span, .inp textarea:focus + span {
+    color: #17D2D6;
+    transform: translateY(-26px) scale(0.75);
+}
+
+.inp input:focus + span + .border {
+    transform: scaleX(1);
+}
+
+.inp textarea:focus + span + .border {
+    transform: translateY(-6px) scaleX(1);
+}
+
+/*创建按钮样式*/
 .playlistForm-wrapper > .playlistForm > .row > button {
-    background-color: #06b7c0;
+    background-color: #17D2D6;
     color: #fff;
     font-size: 18px;
     padding: 10px 30px;
     border-radius: 5px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     outline: none;
     cursor: pointer;
 
 }
 
 .playlistForm-wrapper > .playlistForm > .row > button:hover {
-    background-color: #02a3c0;
+    background-color: #17e0e4;
 }
 

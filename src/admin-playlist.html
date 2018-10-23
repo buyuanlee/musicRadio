@@ -11,18 +11,20 @@
 <body>
 
 <div class="playlistForm-wrapper">
-    <h1>创建歌单</h1>
+    <h1>新建歌单</h1>
     <form class="playlistForm">
         <div class="row">
-            <label>
-                歌单名称
-                <input type="text" name="name">
+            <label for="songlist-name" class="inp">
+                <input type="text" id="songlist-name" placeholder="&nbsp;">
+                <span class="label">歌单名</span>
+                <span class="border"></span>
             </label>
         </div>
         <div class="row">
-            <label>
-                歌单简介
-                <textarea name="summary"></textarea>
+            <label for="songlist-summary" class="inp">
+                <textarea type="text" id="songlist-summary" placeholder="&nbsp;"></textarea>
+                <span class="label">歌单简介</span>
+                <span class="border"></span>
             </label>
         </div>
         <div class="row">
