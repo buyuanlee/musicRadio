@@ -67,9 +67,12 @@
 }
 
 .disc-container .pointer {
-    width: 24vw;
+    width: 25vw;
+    left: 35vw;
     position: absolute;
-    left: 45vw;
+    transform-origin:5.5% 0;
+    transform: rotate(-10deg);
+    transition: all linear .5s;
 }
 
 .disc-container .disc {

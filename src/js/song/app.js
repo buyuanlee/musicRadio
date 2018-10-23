@@ -66,10 +66,13 @@
         },
         play() {
             $(this.el).find('audio')[0].play()
+            $(this.el).find('.pointer').css('transform', `rotate(0deg)`)
+            console.log($(this.el).find('.pointer'))
         }
         ,
         pause() {
             $(this.el).find('audio')[0].pause()
+            $(this.el).find('.pointer').css('transform', `rotate(-10deg)`)
         }
     }
 
