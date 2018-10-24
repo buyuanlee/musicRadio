@@ -70,7 +70,7 @@
     width: 25vw;
     left: 35vw;
     position: absolute;
-    transform-origin:5.5% 0;
+    transform-origin: 5.5% 0;
     transform: rotate(-10deg);
     transition: all linear .5s;
 }
