@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::after {
+    box-sizing: border-box;
+}
+
+*::before {
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input {
+    font: inherit;
+}
+
+body {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/****** layout ******/
+.page {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: #ffffff;
+    height: 100vh;
+    background-image: url("http://91jean.oss-cn-hangzhou.aliyuncs.com/18-10-23/11076171.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    filter: blur(3px);
+    background-image: inherit;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+.page > main {
+    text-align: center;
+    width: 50%;
+    margin-top: 50px;
+    background: rgba(0, 0, 0, .2);
+
+}
+
+/****** aside ******/
+
+.newSong {
+    text-align: center;
+    padding: 10px;
+}
+
+.newSong.active {
+    background: rgba(0, 183, 183, 0.6);
+}
+
+.songList-container {
+    flex-grow: 1;
+}
+
+.songList {
+    text-align: left;
+    border-top: 1px solid #666;
+}
+
+.songList > li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.songList > li.active {
+    background: rgba(0, 183, 183, 0.6);
+}
+
+/****** main ******/
+
+.page > main {
+    color: #fff;
+    padding-top: 10px;
+}
+
+/*按钮样式*/
+.page > main > .songList-container > .save {
+    background-color: #06b7c0;
+    color: #fff;
+    margin: 20px;
+    padding: 0 20px;
+    line-height: 34px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.page > main > .songList-container > .save:hover {
+    background-color: #02a3c0;
+}
